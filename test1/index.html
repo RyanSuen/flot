@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery.js"></script>
+	<script src="jquery.flot.js"></script>
+	<script src="jquery.flot.categories.js"></script>
+	<script>
+		$(function() {
+			var d1 = [];
+			(function() {
+				for(var i=0;i<14;i+=0.5) {
+					d1.push([i,Math.cos(i)]);
+				}
+			})();
+			var d2 = [[0, 3], [4, 8], [8, 5], [9, 13]];
+			
+			console.log(d1.length);
+			$.plot($("#placeholder"),[
+				{
+					data:d1,
+					lines:{show:true,fill:true},
+					points:{show:true}
+				},
+				{
+					data:d2,
+					bars:{show:true}
+				}
+
+			]);
+		/*
+			var data = [ ["January", 10], ["February", 8], ["March", 4], ["April", 13], ["May", 17], ["June", 9] ];
+				$.plot("#placeholder", [ data ], {
+				series: {
+				bars: {
+					show: true,
+					barWidth: 0.6,
+					align: "center"
+					}
+				},
+				xaxis: {
+				mode: "categories",
+				tickLength: 0
+				}
+			});
+		*/
+
+	}); 
+	</script>
+</head>
+<body>
+	<div id="placeholder" style="width:600px;height:300px;">
+		
+	</div>
+</body>
+</html>
